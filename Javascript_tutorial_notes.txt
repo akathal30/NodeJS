@@ -1,0 +1,150 @@
+Datatype is Javascript
+There are 2 types Object and primitive datatypes
+
+There are 7 types of primitive datatypes
+1.) Number - Floating point numbers
+2.) String - sequence of Charamcters used for text. Alwa
+3.) Boolean - Logival types true or false
+4.) Undefined - Value taken by a variable not yet defined or initialized.
+5.) Null - It is empyt value but is different from Undefined.
+6.) Symbol - Value that is unique and cannot be changed.
+7.) Big Int -  Larger integers  than the Numbers type can hold.
+
+let and const is newly introduced and is the modern javascript way of declaring variables
+var keyword is the old way of declaring variables
+let is block scoped and var is function scoped.
+Always use let and never var.
+
+** is used for exponent
+* is used for multiplication
++ is used for concatenation
+
+mdn(mozilla developer network) operator precedence
+` backtick is used for creating raw strings or string literlas in which variables can be embedded in the string
+
+Javascript has type conversion and type coercion
+Type conversion is when we manually convert from 1 type to the other
+Type coercion is when javascript behind the scene converts types for us.
+-, * , / operator in javascript type coercion triggers string to Number conversion.
+
+In Javascript there are 5 Falsy values 0, '', undefined, null,  NaN
+These values would be converted to False when we attempt to convert them to boolean.
+Everythong else is known as truthy values.
+Type coercion happens in Javascript in 2 scenarios:
+	1.) Logical operators
+	2.) Logical condition like if-else
+=== vs ==
+=== is known as the strict equality operator. It does not perform type coercion.
+== is known as the loose equality operator which performs type coercion. 
+
+prompt() function helps to get the user input at runtime.
+prompt('Enter number') will raise a popup with the message Enter number where user will have to enter some input.
+
+Strict version of not equal to is !==
+and loose version of the same is !=
+
+In switch statement the comparison is always strict. 
+
+Expression is a piece of code that produces a value.
+Statement is a bigger piece of code that is executed and which does not produce a value on by itself. For eg if statement.
+
+Conditional ternary operator syntax - age>=18 ? console.log('I'd like to drink wine') : console.log('You can only drink water')
+It has 3 parts, condition if block else block. It can be inserted into template literals.
+
+'use strict' enables the strict mode. This mode forbades the user from doing certain things and second it generates error messages in the console where in other situations javascript would fail silently.
+
+Function is a piece of code which we can use over nd over again in our code.
+Function declaration and function expression.
+Arrow functions do not get the this keyword.
+An array is not primitive and can be mutated, eventhough it is declared with const.
+push method adds elements to the end of the array.
+unshift method adds element to the start of the array.
+pop method removes the last element of the array.
+shift method removes the first element from the array.
+indexOf returns the index number of the specified element.
+includes is a ES6 method. It returns true if the element is present in the array and false if the lement is not present in the array.
+this keyword can be used in javascript objects.
+in javascript for-loop continue statement stops/skips the current iteration and starts the next iteration whereas break just exits the loop.
+
+DOm stands for Document object model. It is basically a structured representation of html documents. It allows javascript to access html elements and styles to manipulate them. It is a connection point between html documents and javascript code. It is stores in a tree struture object.
+DOM and DOM methods are part of something called the web APIs. Web APIs are libraries that browsers implement that can be accessed by Javascript.
+
+In case of an input box you have to use the value property to read or set values instead of textcontent.
+Windows+. is used to open the emoji picker in vscode.
+
+document.querySelector is used to query an element from the dom.
+style method is used to manipulate the css style of an existing element.
+
+ClassList method or property is used in order to manipulate the class in an html. For eg it can be used to remove the hidden property of the class in order to make the class visible on the page.
+
+There are 3 types of event for the keyboard.
+1.) keydown 
+2.) keypress
+3.) keyup
+
+In order to manipulate or change the image for a tag, assign the same to the src tag.
+Check the pig game rolling the dice example that your've worked on.
+
+
+Multi paradigm refers to different styles of programming like :
+	- Procedural programming
+	- Object Oriented programming
+	- Functional programming
+
+
+The technique of returning functions from functions and passing functions as parameters in known as first class functions.
+
+Concurrency model is a fancy term to describe how javascript engine handles multiple tasks happening at the same time.
+Javascript runs on 1 single thread that means it can handle only 1 single task at a time.
+
+Event loop takes long running tasks in the background and then puts them in the main thread once they are finished.
+
+Javascript engine is nothing but a computer program that executes javascript code.
+Now every browser has its own js engine.
+ The most well known engine is v8. It powers google chrome browser and nodejs.
+ 
+ Every js engine has 2 components:
+	- Call Stack - The call stack is where our code is executed using execution context.
+	- Heap - The heap is an unstructured memory pool which stores all the objects that our application needs.
+	
+	Compilation - Entire source code is converted to machine code at once and wirtten to a portable binary file that can be executed by a computer.
+	Interpreter - Interpreter runs through the source code and executes it line by line. It is much slower than compiled languages.
+	
+	Modern javascript uses a combination of compilation and interpretation which is called just in time compilation. This approach compiles the entire code into machine code at once and then executes it right away. But there is no portable file to execute.
+	
+	In JIT(Just in time) compilation, the first step is tp parse the code. The code is parsed into a data structure known as AST (Abstract syntax tree). This works by splitting up each line of code into pieces that are menaingful to the language, like const or function keywords, and then saving all these pieces into the tree in a structured way. This step also checks for any syntax errors. And the resulting tree wil later be used to generate the machine code. This machine code is then executed right away.
+	
+	Once the compilation is completed, global execution context is created for the top level code. The top level code is code that is outside functions.
+	
+	An execution context is an abstract concept. It is an environment in which a piece of Javascript is executed. Its like a box which stores all the necessary information  for some code to be executed.
+	In any javascript project, no matter how large it is, there is always just 1 global execution context. It is always there as the default context and is used to execute the top level code. 
+	Once the top level code finishes execution in the global ec, functions start executing. For each and every fucntion call a new execution context is created containing all the information that is necessary to execute those functions.
+	
+	All these execution context created for all functions make up the callstack.
+	Once all these functions have completed execution, the engine will keep waiting for any callback functions to arrive so that it can execute this.
+	For example the callback function related to clickevent.
+	And remeber that its the event loop that provides these callback functions to the callstack.
+	
+	The first thing that is inside any execution constant is a so called variable environment.
+	In this environmentall our variables and function declarations are stored, and also special arguments object, which are nothing but objects containing the arguments that were passed to the function for which the current execution context has been created. Again remember each function gets its own execution context. The scope chain consists of references to variables that are declared/located outside the functions. And to keep track of the scoped chain, it is stored in each execution context. Finally each context also gets a special keyword called the this keyword.
+	The content on the ec is :
+	1.) Variable environment
+	2.)Scoped chain (reference to variables declared outside of any functions at the class level)
+	3.) this keyword
+	All of these are created in the creation phase.
+	Execution context belonging to Arrow functions don't have the argumentsobject and the this keyword. Instead they can use these from the closest regular function parent. This is an extremely important detail to remember about arrow functions.
+	
+	Call stack is a place, where javascript stacks all the execution context one on top of each other in order to keep track of where we are in terms of execution.
+	Global execution context is the first one to add to the call stack followed by the different functions ec.
+	Execution context of functions is created only when the functions are invoked or called.
+	
+	As soon as the execution is completed. it pops off the call stack.
+	
+	Scoping : How our program's variables are organized and accessed . "Where do variables live" or "Where we can access a certain variable , and where not?"
+	
+	In javascript we have something called lexical scoping. It means that the way the variables are organize and accessed is entirely controlled by the placement of functions and blocks in the program's code. For eg a function that is written inside another function has aceess to the variables of the parent function. Variable scoping is influenced by where exactly the function and code blocks are written 
+	
+	Scope is the environment in which a certain variable is declared. like global scope, function scope and block scope.
+	
+	Block scope variable can only be declared using let or const.If var is used in a block, then it will still be accessible outside of the block. That is the reason let and const are called block scoped. And var is function scoped.
+	
